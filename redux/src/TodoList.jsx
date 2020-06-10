@@ -34,10 +34,9 @@ class TodoList extends Component {
             onChange={this.handleInputChange}
           ></Input>{" "}
           <Button type="primary" onClick={this.handleButtonClick}>
-            {" "}
-            提交{" "}
-          </Button>{" "}
-        </div>{" "}
+            提交
+          </Button>
+        </div>
         <List
           bordered
           style={{
