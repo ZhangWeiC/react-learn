@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import "antd/dist/antd.css";
 import { Input, Button, List } from "antd";
 
@@ -29,7 +29,7 @@ const TodoListUI = (props) => {
         dataSource={props.list}
         renderItem={(item, index) => (
           <List.Item
-            onClick={(index) => {
+            onClick={() => {
               props.handleDeleteItem(index);
             }}
           >

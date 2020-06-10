@@ -4,11 +4,10 @@ import {
   getHandleInputChange,
   getHandleButtonClick,
   getHandleDeleteItem,
-  getInitListData,
+  getTodoList,
 } from "./store/actionCreators";
 import "antd/dist/antd.css";
 import TodoListUI from "./TodoListUI";
-import axios from "axios";
 import store from "./store";
 
 /* const Data = [
@@ -29,11 +28,13 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
-    axios.get("/api/list.json").then((res) => {
-      let data = res.data;
-      const action = getInitListData(data);
-      store.dispatch(action);
-    });
+    const action = getTodoList();
+    store.dispatch(action);
+    // axios.get("/api/list.json").then((res) => {
+    //   let data = res.data;
+    //   const action = getInitListData(data);
+    //   store.dispatch(action);
+    // });
   }
 
   render() {

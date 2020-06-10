@@ -2,7 +2,7 @@ import {
   CHANGE_INPUT_VALUE,
   ADD_TODO_ITEM,
   DELETE_TODO_ITEM,
-  INIT_LIST_DATA
+  INIT_LIST_DATA,
 } from './actionTypes'
 
 const defaultState = {
