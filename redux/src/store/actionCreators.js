@@ -3,8 +3,8 @@ import {
   ADD_TODO_ITEM,
   DELETE_TODO_ITEM,
   INIT_LIST_DATA,
+  GET_INIT_LIST
 } from "./actionTypes";
-import axios from "axios";
 
 export const getHandleInputChange = (value) => ({
   type: CHANGE_INPUT_VALUE,
@@ -25,11 +25,6 @@ export const getInitListData = (data) => ({
   data
 })
 
-export const getTodoList = () => {
-  return (dispatch) => {
-    axios.get('/api/list.json').then((res) => {
-      const action = getInitListData(res.data)
-      dispatch(action)
-    })
-  }
-}
+export const getInitList = () => ({
+  type: GET_INIT_LIST
+})

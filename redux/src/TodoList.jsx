@@ -4,7 +4,7 @@ import {
   getHandleInputChange,
   getHandleButtonClick,
   getHandleDeleteItem,
-  getTodoList,
+  getInitList,
 } from "./store/actionCreators";
 import "antd/dist/antd.css";
 import TodoListUI from "./TodoListUI";
@@ -28,13 +28,8 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
-    const action = getTodoList();
+    const action = getInitList();
     store.dispatch(action);
-    // axios.get("/api/list.json").then((res) => {
-    //   let data = res.data;
-    //   const action = getInitListData(data);
-    //   store.dispatch(action);
-    // });
   }
 
   render() {
