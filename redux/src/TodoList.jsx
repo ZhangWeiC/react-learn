@@ -1,6 +1,14 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+
+import {
+  getHandleInputChange,
+  getHandleButtonClick,
+  getHandleDeleteItem,
+  getInitListData,
+} from "./store/actionCreators";
 import "antd/dist/antd.css";
-import { Input, Button, List } from "antd";
+import TodoListUI from "./TodoListUI";
+import axios from "axios";
 import store from "./store";
 
 /* const Data = [
@@ -20,41 +28,28 @@ class TodoList extends Component {
     store.subscribe(this.handleStoreChange);
   }
 
+  componentDidMount() {
+    axios.get("/api/list.json").then((res) => {
+      let data = res.data;
+      const action = getInitListData(data);
+      store.dispatch(action);
+    });
+  }
+
   render() {
     return (
-      <Fragment>
-        <div>
-          <Input
-            placeholder="输入..."
-            style={{
-              width: "300px",
-              margin: "10px",
-            }}
-            value={this.state.inputValue}
-            onChange={this.handleInputChange}
-          ></Input>{" "}
-          <Button type="primary" onClick={this.handleButtonClick}>
-            提交
-          </Button>
-        </div>
-        <List
-          bordered
-          style={{
-            width: "300px",
-            margin: "10px",
-          }}
-          dataSource={this.state.list}
-          renderItem={(item) => <List.Item> {item} </List.Item>}
-        />
-      </Fragment>
+      <TodoListUI
+        inputValue={this.state.inputValue}
+        handleInputChange={this.handleInputChange}
+        handleButtonClick={this.handleButtonClick}
+        list={this.state.list}
+        handleDeleteItem={this.handleDeleteItem}
+      />
     );
   }
 
   handleInputChange(e) {
-    const action = {
-      type: "change_input_value",
-      value: e.target.value,
-    };
+    const action = getHandleInputChange(e.target.value);
 
     store.dispatch(action);
   }
@@ -64,9 +59,13 @@ class TodoList extends Component {
   }
 
   handleButtonClick = () => {
-    const action = {
-      type: "add_todo_item",
-    };
+    const action = getHandleButtonClick();
+
+    store.dispatch(action);
+  };
+
+  handleDeleteItem = (index) => {
+    const action = getHandleDeleteItem(index);
 
     store.dispatch(action);
   };
