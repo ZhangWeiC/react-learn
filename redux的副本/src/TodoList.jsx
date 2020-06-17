@@ -15,18 +15,9 @@ class TodoList extends Component {
         <ul>
           <li>44444</li>
         </ul>
-        {this.createDiv()}
       </div>
     );
   }
-
-  createDiv = () => {
-    React.createElement({
-      tag: "div",
-      attrs: { className: "title" },
-      children: ["Click"],
-    });
-  };
 }
 
 export default TodoList;
