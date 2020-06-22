@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 import Header from './common/header'
 import { GlobalStyle } from './style'
+import { GlobalIcon } from './statics/iconfont/iconfont'
 
 function App() {
   return (
     <Fragment>
       <GlobalStyle />
+      <GlobalIcon />
       <Header />
     </Fragment>
   );
