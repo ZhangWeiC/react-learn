@@ -106,6 +106,47 @@ export const SearchWrapper = styled.div`
   }
 `
 
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 20px;
+  top: 56px;
+  width: 240px;
+  padding: 0 20px;
+  min-height: 80px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2)
+`
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`
+
+export const SearchInfoSwitch = styled.div`
+  float: right;
+  font-size: 14px;
+  cursor: pointer;
+`
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #787878;
+`
+
 export const Button = styled.div`
   float: right;
   margin-top: 9px;
