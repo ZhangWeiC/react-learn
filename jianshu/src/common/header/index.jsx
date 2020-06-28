@@ -20,6 +20,7 @@ import { actionCreator } from './store'
 
 class Header extends Component {
   showSearchInfo = (show) => {
+    const { searchList } = this.props;
     if(show) {
       return (
         <SearchInfo>
@@ -28,7 +29,7 @@ class Header extends Component {
             <SearchInfoSwitch>换一批</SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
-            {this.props.searchList.map(item => {
+            {searchList.map(item => {
               return (
                 <SearchInfoItem key={item}>{item}</SearchInfoItem>
               )
@@ -42,6 +43,7 @@ class Header extends Component {
   }
 
   render() {
+    const { isFocus, handleFocus, handleBlur } = this.props
     return (
       <HeaderWrapper>
         <Logo />
@@ -59,13 +61,13 @@ class Header extends Component {
               classNames='slide'
             >
               <NavSearch 
-                className={ this.props.isFocus ? 'focused' : '' }
-                onFocus={ this.props.handleFocus }
-                onBlur={ this.props.handleBlur }
+                className={ isFocus ? 'focused' : '' }
+                onFocus={ handleFocus }
+                onBlur={ handleBlur }
               ></NavSearch>
             </CSSTransition>
-            <i className={ this.props.isFocus ? 'focused iconfont' : 'iconfont' }>&#xe617;</i>
-            { this.showSearchInfo(this.props.isFocus) }
+            <i className={ isFocus ? 'focused iconfont' : 'iconfont' }>&#xe617;</i>
+            { this.showSearchInfo(isFocus) }
           </SearchWrapper>
         </Nav>
         <Addition>

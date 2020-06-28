@@ -2,6 +2,11 @@ import { actionTypes } from './index'
 import { fromJS } from 'immutable'
 import axios from 'axios';
 
+const changeList = value => ({
+  type: actionTypes.GET_LIST,
+  value: fromJS(value)
+}) 
+
 export const searchFocus = () => ({
   type: actionTypes.SEARCH_FOCUS
 })
@@ -9,11 +14,6 @@ export const searchFocus = () => ({
 export const searchBlur = () => ({
   type: actionTypes.SEARCH_BLUR
 })
-
-export const changeList = value => ({
-  type: actionTypes.GET_LIST,
-  value: fromJS(value)
-}) 
 
 export const getList = () => {
   return async (dispatch) => {
